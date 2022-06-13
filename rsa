@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+import sys
+
+
+# fn unpack number factorial
+def fc():
+    """
+    function fc to search file to convert number and format n = p * q
+    """
+    try:
+        revfile = sys.argv[1]
+        with open(revfile) as f:
+            for prime_num in f:
+                prime_num = int(prime_num)
+                if prime_num % 2 == 0:
+                        print("{}={}*{}".format(prime_num, prime_num // 2, 2))
+                        continue
+                i = 3
+                while i < prime_num // 2:
+                    if prime_num % i == 0:
+                        print("{}={}*{}".format(prime_num, prime_num // i, i))
+                        break
+                    i = i + 2
+                if i == (prime_num // 2) + 1:
+                    print("{}={}*{}".format(prime_num, prime_num, 1))
+    except (IndexError):
+        pass
+
+
+# auto start
+fc()
